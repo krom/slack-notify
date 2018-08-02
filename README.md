@@ -30,6 +30,24 @@ $ export SLACK_WEBHOOK=https://hooks.slack.com/services/Txxxxxx/Bxxxxxx/xxxxxxxx
 $ docker run -e SLACK_WEBHOOK=$SLACK_WEBHOOK -e SLACK_MESSAGE="hello" -e SLACK_CHANNEL=acid kudlayry/slack-notify
 ```
 
+**.gitlab-ci.yml**
+>You may to setup variables via [CI/CD variables]([https://gitlab.com/help/ci/variables/README#variables)
+```yaml
+stages:
+  - notify
+  
+variables:
+  SLACK_WEBHOOK: https://hooks.slack.com/services/Txxxxxx/Bxxxxxx/xxxxxxxx
+  SLACK_CHANNEL: deploy
+
+notify:
+  stage: notify
+  image: kudlayry/slack-notify:latest
+  script:
+    - 'SLACK_MESSAGE="Message" slack-notify'
+
+```
+
 ## Environment Variables
 
 ```shell
@@ -46,7 +64,7 @@ SLACK_MESSAGE="Today is a fine day"
 # RGB color to for message formatting. (Slack determines what is colored by this)
 SLACK_COLOR="#efefef"
 # The name of the sender of the message. Does not need to be a "real" username
-SLACK_USERNAME"
+SLACK_USERNAME="Bot"
 ```
 
 ## Build It

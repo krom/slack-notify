@@ -16,7 +16,3 @@ docker-build:
 docker-push:
 	docker push $(DOCKER_REGISTRY)/slack-notify
 
-.PHONY: bootstrap
-bootstrap:
-
-
