@@ -1,5 +1,5 @@
 
-DOCKER_REGISTRY ?= "technosophos"
+DOCKER_REGISTRY ?= "kudlayry"
 
 .PHONY: build
 build:
@@ -9,7 +9,7 @@ build:
 .PHONY: docker-build
 docker-build:
 	mkdir -p rootfs
-	GOOS=linux GOARCH=amd64 go build -o rootfs/slack-notify ./main.go
+	GOOS=linux GOARCH=amd64 go build -o rootfs/bin/slack-notify ./main.go
 	docker build -t $(DOCKER_REGISTRY)/slack-notify:latest .
 
 .PHONY: docker-push
