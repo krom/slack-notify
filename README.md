@@ -27,7 +27,7 @@ Running the Docker container goes like this:
 
 ```console
 $ export SLACK_WEBHOOK=https://hooks.slack.com/services/Txxxxxx/Bxxxxxx/xxxxxxxx
-$ docker run -e SLACK_WEBHOOK=$SLACK_WEBHOOK -e SLACK_MESSAGE="hello" -e SLACK_CHANNEL=acid kudlayry/slack-notify
+$ docker run -e SLACK_WEBHOOK=$SLACK_WEBHOOK -e SLACK_MESSAGE="hello" -e SLACK_CHANNEL=acid kromz/slack-notify
 ```
 
 **.gitlab-ci.yml**
@@ -42,7 +42,7 @@ variables:
 
 notify:
   stage: notify
-  image: kudlayry/slack-notify:latest
+  image: kromz/slack-notify:latest
   script:
     - 'SLACK_MESSAGE="Message" slack-notify'
 

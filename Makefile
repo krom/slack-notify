@@ -1,5 +1,5 @@
 
-DOCKER_REGISTRY ?= "kudlayry"
+DOCKER_REGISTRY ?= "kromz"
 
 .PHONY: build
 build:
